@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fathlfathl22664400-dotcom.github.io/alghaithi-pro-releases/sitemap.xml
