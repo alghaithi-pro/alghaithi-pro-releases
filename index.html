@@ -3,7 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الغيثي برو — تحميل التطبيق</title>
+  <title>الغيثي برو — نظام محاسبة متكامل | تحميل مجاني</title>
+  <meta name="description" content="الغيثي برو — تطبيق محاسبة عربي متكامل. فواتير، مخزون، رواتب، تقارير مالية، نقطة بيع POS. حمّله مجاناً لأندرويد.">
+  <meta name="keywords" content="الغيثي برو, تطبيق محاسبة, محاسبة عربي, برنامج محاسبة, فواتير, مخزون, رواتب, تقارير مالية">
+  <meta name="author" content="فضل الغيثي">
+  <meta name="robots" content="index, follow">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2E7D32">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="الغيثي برو">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="الغيثي برو — نظام محاسبة متكامل">
+  <meta property="og:description" content="تطبيق محاسبة عربي متكامل — فواتير، مخزون، رواتب، تقارير مالية في تطبيق واحد. مجاني لأندرويد.">
+  <meta property="og:url" content="https://alghaithi-pro.github.io/alghaithi-pro-releases/">
+  <meta property="og:image" content="https://alghaithi-pro.github.io/alghaithi-pro-releases/icon-512.png">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:site_name" content="الغيثي برو">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "الغيثي برو",
+    "operatingSystem": "Android",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "SAR"
+    },
+    "description": "نظام محاسبة متكامل — فواتير، مخزون، رواتب، تقارير مالية في تطبيق واحد",
+    "author": {
+      "@type": "Person",
+      "name": "فضل الغيثي"
+    },
+    "downloadUrl": "https://alghaithi-pro.github.io/alghaithi-pro-releases/alghaithi-pro.apk",
+    "softwareVersion": "1.0.0",
+    "inLanguage": "ar"
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
@@ -27,6 +77,10 @@
     .dl-btn:hover{transform:translateY(-3px)}
     .dl-btn svg{width:22px;height:22px;fill:#fff}
     .file-info{color:#6B7280;font-size:13px}
+    #pwa-banner{display:none;background:#0F2410;border:1px solid rgba(76,175,80,0.3);border-radius:14px;padding:14px 18px;margin:16px 0;align-items:center;justify-content:space-between;gap:12px}
+    #pwa-banner p{font-size:13px;color:#9CA3AF;flex:1}
+    #pwa-banner b{color:#4CAF50}
+    #pwa-install{background:linear-gradient(135deg,#2E7D32,#1B5E20);color:#fff;border:none;padding:8px 18px;border-radius:10px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer}
     .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:32px 0}
     .stat{background:#0F2410;border:1px solid rgba(76,175,80,0.2);border-radius:14px;padding:16px 12px;text-align:center}
     .stat-v{font-size:20px;font-weight:900;color:#4CAF50}
@@ -56,6 +110,11 @@
       <div class="logo-text">الغيثي <span>برو</span></div>
     </div>
   </header>
+
+  <div id="pwa-banner">
+    <p>ثبّت <b>الغيثي برو</b> مباشرة على جهازك</p>
+    <button id="pwa-install">تثبيت</button>
+  </div>
 
   <section class="hero">
     <div class="app-icon">📗</div>
@@ -100,11 +159,32 @@
     <div class="card"><div class="card-icon">💰</div><h4>الرواتب</h4><p>إدارة رواتب الموظفين</p></div>
     <div class="card"><div class="card-icon">📊</div><h4>التقارير</h4><p>تقارير مالية شاملة</p></div>
     <div class="card"><div class="card-icon">👥</div><h4>العملاء</h4><p>إدارة العملاء والموردين</p></div>
-    <div class="card"><div class="card-icon">💾</div><h4>نسخ احتياطي</h4><p>حفظ وتصدير البيانات</p></div>
+    <div class="card"><div class="card-icon">🏪</div><h4>نقطة البيع</h4><p>POS متكامل مع المخزون</p></div>
   </div>
 </div>
 <footer>
   <p>الغيثي برو v1.0.0 · جميع الحقوق محفوظة © 2025 · تطوير <span>فضل الغيثي</span></p>
 </footer>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/alghaithi-pro-releases/sw.js');
+  }
+
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('pwa-banner').style.display = 'flex';
+  });
+
+  document.getElementById('pwa-install').addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    document.getElementById('pwa-banner').style.display = 'none';
+  });
+</script>
 </body>
 </html>
